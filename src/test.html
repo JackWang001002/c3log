@@ -5,14 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script type="module" src="./index.js"></script>
+    <script type="module" src="../dist/index.js"></script>
   </head>
   <body>
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
+      window.addEventListener('DOMContentLoaded', () => {
+        console.log('dom')
         function foo() {
           console.log('xxx');
-          const clog = log();
+          const clog = c3log();
           clog('hello,world');
           clog('hello,world');
 
@@ -20,14 +21,14 @@
         }
         function bar() {
           console.log('xxx');
-          const clog = log();
+          const clog = c3log();
           clog('hello,world');
           clog('hello,world');
 
           clog('hello,world');
         }
-        foo();
-        bar()
+        // foo();
+        // bar()
       });
     </script>
   </body>

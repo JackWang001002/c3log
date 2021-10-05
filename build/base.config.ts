@@ -3,13 +3,17 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 import webpack, { Configuration } from 'webpack';
 
-
 const config: Configuration = {
   entry: './src/index.ts',
-  devtool: 'inline-source-map',
+  devtool: false,
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: 'index.js',
+    library: {
+      export: 'default',
+      type: 'umd',
+      name: 'c3log',
+    },
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],

@@ -1,12 +1,12 @@
 function log() {
   const location: Record<string, number> = {};
-  return (...args: any[]) => {
+  return (...args: unknown[]) => {
     try {
       throw new Error('');
     } catch (e: any) {
       const str = e.stack.split('\n')[2];
       const match = str.match(/at (?<func>.*) \(.*?:(?<line>.*):/);
-      const { func } = match['groups'] || {};
+      const { func } = match?.groups || {};
       if (location[func] === undefined) {
         location[func] = 1;
       } else {
@@ -14,7 +14,9 @@ function log() {
       }
       const result = `[${func}:${location[func]}]`;
       console.log(`%c==> ${result}`, 'color:red', ...args);
-      return `${result}-${args.join()}`;
+      if (__DEV__) {
+        return `${result}-${args.join()}`;
+      }
     }
   };
 }

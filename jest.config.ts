@@ -16,7 +16,12 @@ const config: Config.InitialOptions = {
     setupFilesAfterEnv: ['jest-extended'],
   },
   setupFilesAfterEnv: ['<rootDir>/jestSetupTests.ts'],
-  testEnvironment:'jsdom'
+  testEnvironment: 'jsdom',
+  globals: {
+    __DEV__: true,
+    __TEST__: true,
+    __VERSION__: require('./package.json').version,
+  },
 };
 
 export default config;

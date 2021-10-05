@@ -19,7 +19,7 @@ const devConfig = merge(baseConfig, {
   },
   plugins: [
     new webpack.DefinePlugin({
-      __PRD__: 'false',
+      __DEV__: 'true',
     }),
   ],
 } as devConfigure);

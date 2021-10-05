@@ -6,7 +6,7 @@ export default merge(baseConfig, {
   mode: 'production',
   plugins: [
     new webpack.DefinePlugin({
-      __PRD__: 'true',
+      __DEV__: 'false',
     }),
   ],
 } as Configuration);
