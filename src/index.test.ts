@@ -1,9 +1,8 @@
-import log from '.';
+import logX from '.';
 describe('test cases', () => {
   it('should show function name and index', () => {
     //@note: the line number is not accurate
     function foo() {
-      const logX = log();
       expect(logX()).toBe('[foo:1]-');
       expect(logX(1, 2)).toBe('[foo:2]-1,2');
     }
@@ -13,7 +12,6 @@ describe('test cases', () => {
     //@note: the line number is not accurate
     class Animal {
       foo() {
-        const logX = log();
         expect(logX()).toBe('[Animal.foo:1]-');
         expect(logX(1, 2)).toBe('[Animal.foo:2]-1,2');
       }

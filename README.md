@@ -1,1 +1,4 @@
-1. 写一个react的demo
+```javascript
+const log = c3log()
+log('error')
+```

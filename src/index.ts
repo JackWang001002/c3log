@@ -20,4 +20,4 @@ function log() {
     }
   };
 }
-export default log;
+export default log();
