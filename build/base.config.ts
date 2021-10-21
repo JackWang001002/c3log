@@ -14,7 +14,10 @@ const config: Configuration = {
       type: 'umd',
       name: 'c3log',
     },
+    globalObject: 'this',
+
   },
+  target: 'web',
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
   },
