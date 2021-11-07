@@ -9,7 +9,7 @@ describe('test cases', () => {
     foo();
 
   });
-  it('ananymous function', () => {
+  it('anonymous function', () => {
     //anonymous function
     (() => {
       const res = log()
