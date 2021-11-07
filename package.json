@@ -1,14 +1,15 @@
 {
   "name": "c3log",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "log",
   "main": "index.js",
+  "types": "src/index.d.ts",
   "scripts": {
     "test": "jest --config jest.config.ts",
     "dev": "webpack s -c ./build/dev.config.ts",
     "build": "webpack -c ./build/prd.config.ts",
     "prepare": "husky install",
-    "pub": "npm version patch && npm publish ",
+    "pub": "npm run clean && npm run build && npm version patch && npm publish ",
     "next": "npm version patch && npm publish --tag=next ",
     "clean": "rm -rf dist/",
     "rerun": "npm run clean && npm run build"
@@ -40,6 +41,7 @@
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "babel-loader": "^8.2.2",
+    "c3log": "^1.0.3",
     "css-loader": "^5.2.4",
     "enzyme-adapter-react-16": "^1.15.6",
     "eslint": "^7.25.0",
