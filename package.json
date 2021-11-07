@@ -1,9 +1,9 @@
 {
   "name": "c3log",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "log",
   "main": "dist/index.js",
-  "types": "src/index.d.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest --config jest.config.ts",
     "dev": "webpack s -c ./build/dev.config.ts",
@@ -41,7 +41,7 @@
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "babel-loader": "^8.2.2",
-    "c3log": "^1.0.4",
+    "c3log": "^1.0.5",
     "css-loader": "^5.2.4",
     "enzyme-adapter-react-16": "^1.15.6",
     "eslint": "^7.25.0",
