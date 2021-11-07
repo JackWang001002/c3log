@@ -5,9 +5,13 @@ describe('test cases', () => {
       expect(log()).toEqual({ fun: 'foo', args: [] });
       expect(log(1, 2)).toEqual({ fun: 'foo', args: [1, 2] });
     }
-    foo();
+    // foo();
+    //anonymous function
+    (() => {
+      expect(log()).toEqual({ fun: 'Object.<anonymous>', args: [] });
+    })()
   });
-  it.skip('should show class and function name and index', () => {
+  it('should show class and function name and index', () => {
     //@note: the line number is not accurate
     class Animal {
       foo() {

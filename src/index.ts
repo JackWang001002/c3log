@@ -1,5 +1,10 @@
 function log(...args: unknown[]) {
-  const match = (new Error() as any).stack.split('\n')[2].match(/(?<=at )\w+?(?=[ $])/)
+  const stack = (new Error() as any).stack.split('\n');
+  const fnReg = /(?<=at ).+?(?=[ $])/;
+  let match = stack[2].match(fnReg)
+  if (!match) {
+    match = stack[3] ? stack[3].match(fnReg) : 'anonymous'
+  }
   const funcName = match && match[0];
   let outputs = [`%c ===>[${funcName}]`, 'color:red']
   if (typeof window === 'undefined') {
