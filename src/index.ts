@@ -1,19 +1,20 @@
 function log(...args: unknown[]) {
   const stack = (new Error() as any).stack.split('\n');
-  const fnReg = /(?<=at ).+?(?=[ $])/;
-  let match = stack[2].match(fnReg)
+  const reg = /at (?<fun>.+?) .*?(?<file>[^/]+?:\d+)/
+  let match = stack[2].match(reg)
   if (!match) {
-    match = stack[3] ? stack[3].match(fnReg) : 'anonymous'
+    match = stack[3].match(reg)
   }
-  const funcName = match && match[0];
-  let outputs = [`%c ===>[${funcName}]`, 'color:red']
+  const { fun, file } = match["groups"];
+  const text = `===>[${file}:${fun}]`
+  let outputs = [`%c ${text}`, 'color:red']
   if (typeof window === 'undefined') {
-    outputs = [`\x1B[31m===>[${funcName}]\x1B[39m`]//TODO:
+    outputs = [`\x1B[31m${text}\x1B[39m`]//TODO:
   }
   console.log(...outputs, ...args)
 
   if (__DEV__) {
-    return { fun: funcName, args }
+    return { fun, file, args }
   }
 
 };

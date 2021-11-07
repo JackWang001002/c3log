@@ -1,22 +1,27 @@
 import log from '.';
 describe('test cases', () => {
+
   it('should show function name and index', () => {
     function foo() {
-      expect(log()).toEqual({ fun: 'foo', args: [] });
-      expect(log(1, 2)).toEqual({ fun: 'foo', args: [1, 2] });
+      const res = log()
+      expect(res?.fun).toEqual('foo');
     }
-    // foo();
+    foo();
+
+  });
+  it('ananymous function', () => {
     //anonymous function
     (() => {
-      expect(log()).toEqual({ fun: 'Object.<anonymous>', args: [] });
+      const res = log()
+      expect(res?.fun).toEqual('Object.<anonymous>');
     })()
-  });
+  })
   it('should show class and function name and index', () => {
     //@note: the line number is not accurate
     class Animal {
       foo() {
-        expect(log()).toEqual({ fun: 'Animal.foo', args: [] });
-        expect(log(1, 2)).toEqual({ fun: 'Animal.foo', args: [1, 2] });
+        let res = log()
+        expect(res?.fun).toEqual('Animal.foo');
       }
     }
     new Animal().foo();
